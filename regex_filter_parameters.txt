@@ -1,0 +1,12 @@
+regex: (.+:)(.+)
+replace: \1
+
+Example:
+
+before
+age: The age of the participants
+name: their first name
+
+after
+age:
+name:

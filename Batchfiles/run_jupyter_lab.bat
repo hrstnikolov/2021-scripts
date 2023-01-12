@@ -1,3 +1,4 @@
+cd %homepath%
 call conda activate machine_learning
 call jupyter lab
 pause

@@ -1,0 +1,25 @@
+Sub CreateTableOfContentV4()
+
+    'Get all slide titles
+    Dim titles As Collection
+    Set titles = New Collection
+    Dim sld As Slide
+    
+    For Each sld In ActivePresentation.Slides
+        Dim title As TextRange
+        Set title = sld.Shapes.title.TextFrame.TextRange
+        titles.Add title
+    Next sld
+    
+    'Add new Slide for table of content
+    ActivePresentation.Slides.Add Index:=2, Layout:=ppLayoutCustom
+    ActivePresentation.Slides(2).Layout = ppLayoutObject
+    ActivePresentation.Slides(2).Shapes.title.TextFrame.TextRange = "Table of Contents"
+ 
+    'Append each slide title
+    For Each title In titles
+        ActivePresentation.Slides(2).Shapes(2).TextFrame.TextRange.InsertAfter title & vbNewLine
+    Next title
+    
+    
+End Sub

@@ -1,0 +1,12 @@
+Sub ChangeColorOfAllRecordingIcons()
+    Dim shp As Shape
+    Dim sld As Slide
+    
+    For Each sld In ActivePresentation.Slides
+        For Each shp In sld.Shapes
+            If shp.Name = "Recorded Sound" Then
+                shp.Fill.BackColor.RGB = RGB(200, 0, 0)
+            End If
+            Next
+        Next
+End Sub

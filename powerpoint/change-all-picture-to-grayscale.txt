@@ -1,0 +1,12 @@
+Sub ChangeAllPicturesToGrayscale()
+    Dim shp As Shape
+    Dim sld As Slide
+    
+    For Each sld In ActivePresentation.Slides
+        For Each shp In sld.Shapes
+            If shp.Type = msoPicture Then
+                shp.PictureFormat.ColorType = msoPictureGrayscale
+            End If
+            Next
+        Next
+End Sub
